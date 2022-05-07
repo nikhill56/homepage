@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{ useRef, useState } from "react";
 import Divider from "@mui/material/Divider";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
 import Container from "@mui/material/Container";
@@ -67,6 +67,10 @@ import vector5 from "./Saly-10.png";
 import boxes from "./Group 160.png";
 import mobile from "./Vectary texture.png";
 
+//post
+
+  
+  //
 const ButtonBootstrap = styled(Button)(({ theme }) => ({
   textTransform: "none",
   fontSize: 18,
@@ -102,6 +106,45 @@ const ButtonBootstrap = styled(Button)(({ theme }) => ({
 }));
 
 const HomePage = () => {
+  const baseURL = "http://localhost:8800";
+  const post_email = useRef(null);
+  const [postResult, setPostResult] = useState(null);
+  const fortmatResponse = (res) => {
+    return JSON.stringify(res, null, 2);
+  }
+  
+  async function postData() {
+    const postData = {
+      email: post_email.current.value,
+    };
+    try {
+      const res = await fetch(`${baseURL}/subscribe`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": "token-value",
+        },
+        body: JSON.stringify(postData),
+      });
+      if (!res.ok) {
+        const message = `An error has occured: ${res.status} - ${res.statusText}`;
+        throw new Error(message);
+      }
+      const data = await res.json();
+      const result = {
+        status: res.status + "-" + res.statusText,
+        headers: {
+          "Content-Type": res.headers.get("Content-Type"),
+          "Content-Length": res.headers.get("Content-Length"),
+        },
+        data: data,
+      };
+      setPostResult(fortmatResponse(result));
+    } catch (err) {
+      setPostResult(err.message);
+    }
+  }
+  
   return (
     <div
       style={{
@@ -144,6 +187,10 @@ const HomePage = () => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 width: "90vw !important",
+                position: "fixed",
+                position: "-webkit-sticky",
+                top: "0",
+                zIndex: 100,
               }}
             >
               <div
@@ -1362,6 +1409,7 @@ const HomePage = () => {
                   backgroundColor: "rgba(100,100,100,0.3)",
                   borderRadius: "15px",
                 }}
+                ref={post_email}
               />
             </FormControl>
             {/* <FormControl sx={{ width: "30ch", marginTop: "20px" }}>
@@ -1403,7 +1451,8 @@ const HomePage = () => {
                 marginLeft: "80px",
               }}
             >
-              <ButtonBootstrap>Subscribe</ButtonBootstrap>
+              <ButtonBootstrap onClick={postData}>Subscribe</ButtonBootstrap>
+              <button onClick={postData}>Subscribe</button>
             </div>
           </Grid>
         </Grid>
