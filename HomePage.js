@@ -16,6 +16,31 @@ import insta from "./insta.svg";
 import telegram from "./telegram.svg";
 import medium from "./medium.svg";
 import axios from "axios";
+// /* Inline #4 | http://localhost:3000/demo/corona-react-free/template/demo_1/preview/homepage */
+
+// .page-body-wrapper {
+//   /* min-height: calc(100vh - 70px); */
+//   /* width: calc(100% - 244px); */
+// }
+
+// .content-wrapper {
+//   /* background: #000000; */
+// }
+
+// /* Inline #80 | http://localhost:3000/demo/corona-react-free/template/demo_1/preview/homepage */
+
+// @media (min-width: 600px) {
+//   .css-k3kfax-MuiContainer-root {
+//     /* padding-left: 24px; */
+//     /* padding-right: 24px; */
+//   }
+// }
+
+// /* Inline #79 | http://localhost:3000/demo/corona-react-free/template/demo_1/preview/homepage */
+
+// .css-k3kfax-MuiContainer-root {
+//   /* margin-top: 200px; */
+// }
 import desktop from "./Group 33941.png";
 import vector1 from "./Other 07.png";
 import vector2 from "./Saly-44.png";
@@ -24,6 +49,9 @@ import vector4 from "./Image.png";
 import vector5 from "./Saly-10.png";
 import boxes from "./Group 160.png";
 
+//post
+
+//
 const ButtonBootstrap = styled(Button)(({ theme }) => ({
   textTransform: "none",
   fontSize: 18,
@@ -87,6 +115,7 @@ const HomePage = () => {
         console.log(err);
         setClearMessage("Error.Please Try Again");
       });
+
 
   }
 
@@ -718,469 +747,12 @@ const HomePage = () => {
           backgroundColor: "black",
         }}
       >
-        {/* <Container
-          sx={{
-            maxWidth: "100% !important",
-            padding: "0px !important",
-            backgroundColor: "#040130",
-            borderTopLeftRadius: "10%",
-            borderTopRightRadius: "-30%",
-            padding: "0px",
-            background:`url(${timeline})`,backgroundRepeat:'no-repeat',backgroundPosition:'bottom',backgroundSize:'cover'
-          }}
-        > */}
+  
         <h2
           style={{ margin: "0px", textAlign: "center", marginBottom: "20px" }}
         >
           Roadmap
         </h2>
-        {/* <Typography textAlign="center" sx={{ marginBottom: "50px" }}>
-            A quarter-wise dream to reality roadmap
-          </Typography> */}
-        {/* <Timeline position="alternate">
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: "auto 0" }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
-              >
-                <div style={{paddingVertical: "50px"}}>
-                  <h1
-                    style={{
-                      fontWeight: "1000",
-                      fontSize: "4rem",
-                      WebkitTextStrokeWidth: "2px",
-                      WebkitTextStrokeColor: "#FF40A5",
-                    }}
-                    className="quarters"
-                  >
-                    Q1
-                  </h1>
-                  <h1
-                      style={{
-                        fontWeight: "1000",
-                        fontSize: "4rem",
-                        WebkitTextStrokeWidth: "2px",
-                        WebkitTextStrokeColor: "white",
-                      }}
-                      className="quarters"                  
-                  >2022</h1>
-                </div>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot>
-                  <div
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      border: "5px solid purple",
-                      borderRadius: "50%",
-                      backgroundColor: "white",
-                    }}
-                  ></div>
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                
-                  <Card
-                    sx={{
-                      border: "3px solid #6614E5",
-                      borderRadius: "10px",
-                      backgroundColor: "black",
-                    }}
-                  >
-                    <div
-                      style={{ backgroundColor: "#6614E5", overflow: "hidden" }}
-                    >
-                      <div
-                        style={{
-                          backgroundColor: "A474E5",
-                          overflow: "hidden",
-                          borderTopRightRadius: "30px",
-                        }}
-                      >
-                        <CardContent
-                          sx={{
-                            borderTopRightRadius: "100px",
-                            backgroundColor: "black",
-                          }}
-                        >
-                          <Typography
-                            variant="h6"
-                            textAlign="left"
-                            style={{ marginLeft: "40px", color: "white" }}
-                          >
-                            Idea
-                          </Typography>
-                          <Typography
-                            variant="h6"
-                            textAlign="left"
-                            style={{ marginLeft: "40px", color: "white" }}
-                          >
-                            Pre Seed
-                          </Typography>
-                          <Typography
-                            variant="h6"
-                            textAlign="left"
-                            style={{ marginLeft: "40px", color: "white" }}
-                          >
-                            Development
-                          </Typography>
-                          <Typography
-                            variant="h6"
-                            textAlign="left"
-                            style={{ marginLeft: "40px", color: "white" }}
-                          >
-                            Testing
-                          </Typography>
-                          <div
-                            style={{
-                              background:
-                                "linear-gradient(135deg, #A474E5 0%, #AB7BE9 15.1%, #4E1CB8 68.64%, #672ACC 81.77%, #754AAD 100%);",
-                              width: "100px",
-                              position: "absolute",
-                              zIndex: 99,
-                              float: "right",
-                            }}
-                          ></div>
-                        </CardContent>
-                      </div>
-                    </div>
-                  </Card>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: "auto 0" }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
-              >
-                <div style={{paddingVertical: "50px"}}>
-                  <h1
-                    style={{
-                      fontWeight: "1000",
-                      fontSize: "4rem",
-                      WebkitTextStrokeWidth: "2px",
-                      WebkitTextStrokeColor: "#FF40A5",
-                    }}
-                    className="quarters"
-                  >
-                    Q2
-                  </h1>
-                  <h1
-                      style={{
-                        fontWeight: "1000",
-                        fontSize: "4rem",
-                        WebkitTextStrokeWidth: "2px",
-                        WebkitTextStrokeColor: "white",
-                      }}
-                      className="quarters"                  
-                  >2022</h1>
-                </div>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot>
-                  <div
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      border: "5px solid purple",
-                      borderRadius: "50%",
-                      backgroundColor: "white",
-                    }}
-                  ></div>
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <Card
-                  sx={{
-                    border: "3px solid #6614E5",
-                    borderRadius: "10px",
-                    backgroundColor: "black",
-                  }}
-                >
-                  <div
-                    style={{ backgroundColor: "#6614E5", overflow: "hidden" }}
-                  >
-                    <div
-                      style={{
-                        backgroundColor: "A474E5",
-                        overflow: "hidden",
-                        borderTopRightRadius: "30px",
-                      }}
-                    >
-                      <CardContent
-                        sx={{
-                          borderTopRightRadius: "100px",
-                          backgroundColor: "black",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                          Product Launch
-                        </Typography>
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                         Token Deployment
-                        </Typography>
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                          Voting Protocol
-                        </Typography>
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                          Staking
-                        </Typography>
-                        <div
-                          style={{
-                            background:
-                              "linear-gradient(135deg, #A474E5 0%, #AB7BE9 15.1%, #4E1CB8 68.64%, #672ACC 81.77%, #754AAD 100%);",
-                            width: "100px",
-                            position: "absolute",
-                            zIndex: 99,
-                            float: "right",
-                          }}
-                        ></div>
-                      </CardContent>
-                    </div>
-                  </div>
-                </Card>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: "auto 0" }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
-              >
-                <div style={{paddingVertical: "50px"}}>
-                  <h1
-                    style={{
-                      fontWeight: "1000",
-                      fontSize: "4rem",
-                      WebkitTextStrokeWidth: "2px",
-                      WebkitTextStrokeColor: "#FF40A5",
-                    }}
-                    className="quarters"
-                  >
-                    Q3
-                  </h1>
-                  <h1
-                      style={{
-                        fontWeight: "1000",
-                        fontSize: "4rem",
-                        WebkitTextStrokeWidth: "2px",
-                        WebkitTextStrokeColor: "white",
-                      }}
-                      className="quarters"                  
-                  >2022</h1>
-                </div>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot>
-                  <div
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      border: "5px solid purple",
-                      borderRadius: "50%",
-                      backgroundColor: "white",
-                    }}
-                  ></div>
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <Card
-                  sx={{
-                    border: "3px solid #6614E5",
-                    borderRadius: "10px",
-                    backgroundColor: "black",
-                  }}
-                >
-                  <div
-                    style={{ backgroundColor: "#6614E5", overflow: "hidden" }}
-                  >
-                    <div
-                      style={{
-                        backgroundColor: "A474E5",
-                        overflow: "hidden",
-                        borderTopRightRadius: "30px",
-                      }}
-                    >
-                      <CardContent
-                        sx={{
-                          borderTopRightRadius: "100px",
-                          backgroundColor: "black",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                          Post-Update
-                        </Typography>
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                          NFT Marketplace
-                        </Typography>
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                          Content Monetization
-                        </Typography>
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                          Smart Contract Audits
-                        </Typography>
-                        <div
-                          style={{
-                            background:
-                              "linear-gradient(135deg, #A474E5 0%, #AB7BE9 15.1%, #4E1CB8 68.64%, #672ACC 81.77%, #754AAD 100%);",
-                            width: "100px",
-                            position: "absolute",
-                            zIndex: 99,
-                            float: "right",
-                          }}
-                        ></div>
-                      </CardContent>
-                    </div>
-                  </div>
-                </Card>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: "auto 0" }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
-              >
-                <div style={{paddingVertical: "50px"}}>
-                  <h1
-                    style={{
-                      fontWeight: "1000",
-                      fontSize: "4rem",
-                      WebkitTextStrokeWidth: "2px",
-                      WebkitTextStrokeColor: "#FF40A5",
-                    }}
-                    className="quarters"
-                  >
-                    Q4
-                  </h1>
-                  <h1
-                      style={{
-                        fontWeight: "1000",
-                        fontSize: "4rem",
-                        WebkitTextStrokeWidth: "2px",
-                        WebkitTextStrokeColor: "white",
-                      }}
-                      className="quarters"                  
-                  >2022</h1>
-                </div>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot>
-                  <div
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      border: "5px solid purple",
-                      borderRadius: "50%",
-                      backgroundColor: "white",
-                    }}
-                  ></div>
-                </TimelineDot>
-              </TimelineSeparator>
-              <TimelineContent>
-                <Card
-                  sx={{
-                    border: "3px solid #6614E5",
-                    borderRadius: "10px",
-                    backgroundColor: "black",
-                  }}
-                >
-                  <div
-                    style={{ backgroundColor: "#6614E5", overflow: "hidden" }}
-                  >
-                    <div
-                      style={{
-                        backgroundColor: "A474E5",
-                        overflow: "hidden",
-                        borderTopRightRadius: "30px",
-                      }}
-                    >
-                      <CardContent
-                        sx={{
-                          borderTopRightRadius: "100px",
-                          backgroundColor: "black",
-                        }}
-                      >
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                         NFT Lending
-                        </Typography>
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                         DAO Stack Launch
-                        </Typography>
-                        <Typography
-                          variant="h6"
-                          textAlign="left"
-                          style={{ marginLeft: "40px", color: "white" }}
-                        >
-                          On-Chain Governance
-                        </Typography>
-                        <div
-                          style={{
-                            background:
-                              "linear-gradient(135deg, #A474E5 0%, #AB7BE9 15.1%, #4E1CB8 68.64%, #672ACC 81.77%, #754AAD 100%);",
-                            width: "100px",
-                            position: "absolute",
-                            zIndex: 99,
-                            float: "right",
-                          }}
-                        ></div>
-                      </CardContent>
-                    </div>
-                  </div>
-                </Card>
-              </TimelineContent>
-            </TimelineItem>
-          </Timeline> */}
-        {/* </Container> */}
       </Container>
       <Box
         className="white-box"
@@ -1284,22 +856,6 @@ const HomePage = () => {
               </h2>
             </div>
           </Grid>
-          {/* <Grid item xs={6} md={8}>
-            <h6 style={{ marginLeft: "35px" }}>Find us at:</h6>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginRight: "30px",
-              }}
-            >
-              <img src={linkedin} alt="" />
-              <img src={twitter} alt="" />
-              <img src={medium} alt="" />
-              <img src={insta} alt="" />
-              <img src={telegram} alt="" />
-            </div>
-          </Grid> */}
         </Grid>
         <div
           style={{
@@ -1333,39 +889,7 @@ const HomePage = () => {
               <img src={telegram} alt="" />
             </div>
           </Grid>
-          {/* <Grid item xs={6} md={8}>
-            <h3 style={{ color: "white", fontSize: "25px" }}>Contact Us:</h3>
-          </Grid>
-          <Grid item xs={6} md={9}>
-            <span style={{ color: "white", fontSize: "14px" }}>
-              Email: contact@rariko.com
-            </span>
-          </Grid>
-          <Grid item xs={6} md={9}>
-            <span style={{ color: "white", fontSize: "15px" }}>
-              Mobile: +91-8446610100
-            </span>
-          </Grid>
-          <Grid item xs={6} md={9}>
-            <span style={{ color: "white", fontSize: "15px" }}>
-              Mobile: 71237123712
-            </span>
-          </Grid> */}
         </Grid>
-        {/* <Grid container style={{ display: "flex", justifyContent: "center" }}>
-          <Grid item xs={6} md={8}>
-            <h3 style={{ color: "white" }}>Rariko Pages</h3>
-          </Grid>
-          <Grid item xs={6} md={8}>
-            <span style={{ color: "white" }}>Dashboard</span>
-          </Grid>
-          <Grid item xs={6} md={8}>
-            <span style={{ color: "white" }}>Rariko Token</span>
-          </Grid>
-          <Grid item xs={6} md={8}>
-            <span style={{ color: "white" }}>Support</span>
-          </Grid>
-        </Grid> */}
         <div
           style={{
             height: "150px",
@@ -1409,35 +933,6 @@ const HomePage = () => {
                 value={email}
               />
             </FormControl>
-            {/* <FormControl sx={{ width: "30ch", marginTop: "20px" }}>
-              <TextareaAutosize
-                minRows={4}
-                placeholder="Message"
-                style={{
-                  color: "white",
-                  backgroundColor: "rgba(100,100,100,0.3)",
-                  height: "8rem",
-                  borderRadius: "15px",
-                  border: "none",
-                  padding: "10px",
-                }}
-              />
-            </FormControl> */}
-            {/* <TextField
-              id="outlined-password-input"
-              label="Email"
-              type="email"
-              autoComplete="current-password"
-              sx={{ backgroundColor: "#433f4d", color: "white" }}
-            />
-            <TextField
-              id="outlined-multiline-static"
-              label="Message"
-              multiline
-              rows={4}
-              defaultValue="Message"
-              sx={{ backgroundColor: "#433f4d", color: "white" }}
-            /> */}
             <div
               style={{
                 display: "flex",
