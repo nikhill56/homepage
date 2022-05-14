@@ -1,17 +1,12 @@
-import React ,{ useRef, useState } from "react";
-import Divider from "@mui/material/Divider";
-import TextareaAutosize from "@mui/base/TextareaAutosize";
+import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import { Stack, Typography, Card, CardContent } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import * as roadmap from "./HomePage.module.css";
 import curve from "./curve.png";
 import timeline from "./timelinebg.svg";
@@ -20,44 +15,7 @@ import twitter from "./twitter.svg";
 import insta from "./insta.svg";
 import telegram from "./telegram.svg";
 import medium from "./medium.svg";
-// /* Inline #4 | http://localhost:3000/demo/corona-react-free/template/demo_1/preview/homepage */
-
-// .page-body-wrapper {
-//   /* min-height: calc(100vh - 70px); */
-//   /* width: calc(100% - 244px); */
-// }
-
-// .content-wrapper {
-//   /* background: #000000; */
-// }
-
-// /* Inline #80 | http://localhost:3000/demo/corona-react-free/template/demo_1/preview/homepage */
-
-// @media (min-width: 600px) {
-//   .css-k3kfax-MuiContainer-root {
-//     /* padding-left: 24px; */
-//     /* padding-right: 24px; */
-//   }
-// }
-
-// /* Inline #79 | http://localhost:3000/demo/corona-react-free/template/demo_1/preview/homepage */
-
-// .css-k3kfax-MuiContainer-root {
-//   /* margin-top: 200px; */
-// }
-
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineOppositeContent,
-} from "@mui/lab";
-import Roadmap from "./Roadmap";
-import TextField from "@mui/material/TextField";
-import bottom from "./image1276.png";
+import axios from "axios";
 import desktop from "./Group 33941.png";
 import vector1 from "./Other 07.png";
 import vector2 from "./Saly-44.png";
@@ -65,12 +23,7 @@ import vector3 from "./Saly-26.png";
 import vector4 from "./Image.png";
 import vector5 from "./Saly-10.png";
 import boxes from "./Group 160.png";
-import mobile from "./Vectary texture.png";
 
-//post
-
-  
-  //
 const ButtonBootstrap = styled(Button)(({ theme }) => ({
   textTransform: "none",
   fontSize: 18,
@@ -107,44 +60,36 @@ const ButtonBootstrap = styled(Button)(({ theme }) => ({
 
 const HomePage = () => {
   const baseURL = "http://localhost:8800";
-  const post_email = useRef(null);
+  //const post_email = useRef(null);
   const [postResult, setPostResult] = useState(null);
-  const fortmatResponse = (res) => {
-    return JSON.stringify(res, null, 2);
-  }
-  
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const setClearMessage = (msg) => {
+    setMessage(msg);
+    setTimeout(() => {
+      setMessage("");
+    }, 5000);
+  };
   async function postData() {
-    const postData = {
-      email: post_email.current.value,
+    let postData = {
+      email: email,
     };
-    try {
-      const res = await fetch(`${baseURL}/subscribe`, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          "x-access-token": "token-value",
-        },
-        body: JSON.stringify(postData),
+    console.log(email);
+
+    axios
+      .post(`${baseURL}/subscribe`, postData)
+      .then((res) => {
+        setClearMessage("Thank you for subscribing");
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        setClearMessage("Error.Please Try Again");
       });
-      if (!res.ok) {
-        const message = `An error has occured: ${res.status} - ${res.statusText}`;
-        throw new Error(message);
-      }
-      const data = await res.json();
-      const result = {
-        status: res.status + "-" + res.statusText,
-        headers: {
-          "Content-Type": res.headers.get("Content-Type"),
-          "Content-Length": res.headers.get("Content-Length"),
-        },
-        data: data,
-      };
-      setPostResult(fortmatResponse(result));
-    } catch (err) {
-      setPostResult(err.message);
-    }
+
   }
-  
+
   return (
     <div
       style={{
@@ -244,7 +189,7 @@ const HomePage = () => {
                     padding: "10px",
                   }}
                 >
-                  Service
+                  Product
                 </span>
                 <span
                   style={{
@@ -264,7 +209,32 @@ const HomePage = () => {
                     padding: "10px",
                   }}
                 >
-                  <ButtonBootstrap>Login/Register</ButtonBootstrap>
+                  <ButtonBootstrap>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      Login/Register
+                      <br />
+                      <span
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "525",
+                          fontFamily: [
+                            "-apple-system",
+                            "BlinkMacSystemFont",
+                            '"Segoe UI"',
+                            "Roboto",
+                            '"Helvetica Neue"',
+                            "Arial",
+                            "sans-serif",
+                            '"Apple Color Emoji"',
+                            '"Segoe UI Emoji"',
+                            '"Segoe UI Symbol"',
+                          ].join(","),
+                        }}
+                      >
+                        (Coming Soon)
+                      </span>
+                    </div>
+                  </ButtonBootstrap>
                 </span>
               </div>
             </Box>
@@ -295,7 +265,7 @@ const HomePage = () => {
                     flexDirection: "column",
                     alignItems: "flex-start",
                     width: "800px",
-                    height: "209px",
+                    height: "180px",
                     left: "120px",
                     top: "236px",
                     fontStyle: "normal",
@@ -328,7 +298,16 @@ const HomePage = () => {
                       WEB 3.0
                     </span>
                   </h1>
-                  <ButtonBootstrap style={{}}>Coming Soon</ButtonBootstrap>
+                  <div style={{ paddingTop: "20px" }}>
+                    <ButtonBootstrap style={{}}>
+                      <a
+                        href="#subscribe"
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        Get Early Access
+                      </a>
+                    </ButtonBootstrap>
+                  </div>
                 </div>
                 <img src={boxes} alt="image" height="360" width="500" />
               </div>
@@ -397,7 +376,7 @@ const HomePage = () => {
                 </span>
               </Typography>
               <Grid container spacing={2}>
-                <Grid item xs={6} my={"auto"}>
+                <Grid item xs={6} my={"30px"}>
                   <Stack justifyContent="center">
                     <p
                       color="black"
@@ -418,7 +397,7 @@ const HomePage = () => {
                       }}
                     >
                       Rariko is a social media platform in the world of Web3.0
-                      that allows users to socialize with fellow blockchaain
+                      that allows users to socialize with fellow blockchain
                       sapiens, create and monetize censorship resistant content.
                     </p>
                     <p
@@ -437,7 +416,9 @@ const HomePage = () => {
                         color: "#585757",
                       }}
                     >
-                      Also, we are simplifying the community management for projects to engage and manage their audience in few clicks.
+                      Also, we are simplifying the community management for
+                      projects to engage and manage their audience in few
+                      clicks.
                     </p>
                     <ButtonBootstrap
                       style={{
@@ -451,11 +432,13 @@ const HomePage = () => {
                   </Stack>
                 </Grid>
                 <Grid item xs={6}>
-                  <Box sx={{ width: "100%", position: "relative" }}>
+                  <Box
+                    sx={{ width: "100%", position: "relative", height: "70vh" }}
+                  >
                     <img
                       src={desktop}
                       alt="desktop"
-                      style={{ width: "80%" }}
+                      style={{ width: "100%", transform: "translateY(-130px)" }}
                     ></img>
                   </Box>
                 </Grid>
@@ -517,7 +500,7 @@ const HomePage = () => {
                     borderBottom: "3px solid rgba(100,100,100,0.4)",
                   }}
                 >
-                  Services
+                  Product
                 </span>
               </Typography>
             </Grid>
@@ -1257,7 +1240,7 @@ const HomePage = () => {
                   fontWeight: "700",
                 }}
               >
-                Whitepapers
+                Whitepaper
               </span>
             </Typography>
           </Stack>
@@ -1270,6 +1253,7 @@ const HomePage = () => {
           display: "flex",
           justifyContent: "center",
           width: "100vw",
+          height: "35vh",
         }}
       >
         <Grid container style={{ display: "flex", justifyContent: "center" }}>
@@ -1279,7 +1263,7 @@ const HomePage = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "baseline",
-                marginTop:"2.5rem"
+                marginTop: "2.5rem",
               }}
             >
               <img
@@ -1290,7 +1274,7 @@ const HomePage = () => {
               <h2
                 style={{
                   margin: "0px",
-                  fontSize: "70px",
+                  fontSize: "60px",
                   marginLeft: "16px",
                   fontWeight: "800",
                 }}
@@ -1319,13 +1303,20 @@ const HomePage = () => {
         </Grid>
         <div
           style={{
-            height: "300px",
+            height: "150px",
             width: "6px",
             backgroundColor: "#9100FF",
             margin: "0px 10px",
           }}
         ></div>
-        <Grid container style={{ display: "flex", justifyContent: "center",marginTop:"2.5rem" }}>
+        <Grid
+          container
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "2.5rem",
+          }}
+        >
           <Grid item xs={6} md={8}>
             <h6 style={{ marginLeft: "65px" }}>Find us at:</h6>
             <div
@@ -1377,7 +1368,7 @@ const HomePage = () => {
         </Grid> */}
         <div
           style={{
-            height: "300px",
+            height: "150px",
             width: "5px",
             backgroundColor: "#9100FF",
             margin: "0px 10px",
@@ -1391,6 +1382,7 @@ const HomePage = () => {
                 fontSize: "20px",
                 marginLeft: "90px",
                 fontWeight: "800",
+                paddingBottom: "15px",
               }}
             >
               <span style={{ color: "white", margin: "0px" }}>Rari</span>
@@ -1401,15 +1393,20 @@ const HomePage = () => {
             </h2>
           </Grid>
           <Grid item xs={6} md={8}>
-            <FormControl sx={{ width: "30ch", marginBottom: "30px",marginLeft:"45px" }}>
+            <FormControl
+              sx={{ width: "30ch", marginBottom: "10px", marginLeft: "45px" }}
+            >
               <OutlinedInput
                 placeholder="Email"
+                id="subscribe"
                 sx={{
                   color: "white",
                   backgroundColor: "rgba(100,100,100,0.3)",
                   borderRadius: "15px",
                 }}
-                ref={post_email}
+                // ref={post_email}
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
             </FormControl>
             {/* <FormControl sx={{ width: "30ch", marginTop: "20px" }}>
@@ -1445,14 +1442,32 @@ const HomePage = () => {
               style={{
                 display: "flex",
                 justifyContent: "center",
+                flexDirection: "column",
                 width: "100%",
                 height: "auto",
                 padding: "10px",
                 marginLeft: "80px",
               }}
             >
-              <ButtonBootstrap onClick={postData}>Subscribe</ButtonBootstrap>
-              <button onClick={postData}>Subscribe</button>
+              <ButtonBootstrap onClick={postData}>Send</ButtonBootstrap>
+              {/* <button onClick={postData}>Subscribe</button> */}
+              {message.length !== 0 && (
+                <div className="">
+                  <p
+                    style={{
+                      padding: "10px 20px",
+                      textAlign: "center",
+                      width: "100%",
+                      margin: "10px auto",
+                      backgroundColor: "rgba(255,255,255,0.1)",
+                      color: "pink",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    {message}
+                  </p>
+                </div>
+              )}
             </div>
           </Grid>
         </Grid>
